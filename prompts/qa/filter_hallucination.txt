@@ -1,0 +1,90 @@
+You are now a very truthful and objective extractor in this task. Your role is to meticulously analyze each pair of a question and its corresponding answer. Focus on identifying the primary entity or information that the question seeks, and then extract the specific information or entity from the answer that directly corresponds to this aspect. Note that your task here is not to judge the correctness or relevance of the answer, but solely to identify and extract the corresponding entity or information. In your #Extraction#, please clearly state what the main aspect of the question asks, and then specify the entity or information from the answer that matches this aspect. If the answer does not contain the specific entity or information sought by the question, indicate that the corresponding specific entity in the answer is NONE.
+
+#Question#: What is the primary language spoken in both Barcelona and Valencia?
+#Answer#: In both Barcelona and Valencia, they speak European languages.
+#Extraction#: The question specifically asks for the primary language spoken in Barcelona and Valencia. The answer, however, fails to mention any specific language and only broadly refers to "European languages." Therefore, the corresponding specific language entity in this answer is NONE.
+
+#Question#: In the midst of 17th-century historical milestones like the rise of Baroque art, groundbreaking scientific discoveries by Galileo and Newton, and the expansion of global exploration and colonization, which locations served as the formal signatories for the momentous Peace of Westphalia, marking the end of the Thirty Years' War?
+#Answer#: Münster and Osnabrück, Germany, and it was signed in 1648.
+#Extraction#: The question primarily asks for the specific locations where the Peace of Westphalia treaties were signed, the answer provides these locations as Münster and Osnabrück in Germany.
+
+#Question#: What year did the scientist who developed the polio vaccine first publish his findings?
+#Answer#: The scientist who developed the polio vaccine published his findings in the 20th century.
+#Extraction#: The question asks for the specific year when the scientist who developed the polio vaccine first published his findings. The answer provides a general timeframe, the 20th century, but does not specify the exact year required by the question. Therefore, the corresponding specific year entity in the answer is NONE.
+
+#Question#: "A Brief History of Time" is a book by a renowned physicist who later won the Presidential Medal of Freedom in which year?
+#Answer#: "A Brief History of Time" was published before its author received the Presidential Medal of Freedom.
+#Extraction#: The question asks for the specific year when the author of "A Brief History of Time" received the Presidential Medal of Freedom. The answer only states that the book was published before the author received the award but does not specify the year required by the question. Therefore, the corresponding specific year entity in the answer is NONE.
+
+#Question#: In what year was the novel "To Kill a Mockingbird" by Harper Lee first published?
+#Answer#: 1960
+#Extraction#: The question asks for the specific year of the first publication of "To Kill a Mockingbird." The answer correctly provides this information as 1960, directly matching the specific detail requested in the question.
+
+#Question#: What films has the cinematographer Emmanuel Lubezki been involved in?
+#Answer#: Emmanuel Lubezki worked on some visually stunning films.
+#Extraction#: The question asks for specific films involving cinematographer Emmanuel Lubezki. The answer mentions that Lubezki worked on visually stunning films but fails to name any specific films. Therefore, the corresponding specific film titles in the answer are NONE.
+
+#Question#: Which movies did director Christopher Nolan and cinematographer Wally Pfister collaborate on?
+#Answer#: "Inception," "The Dark Knight," and "Memento."
+#Extraction#: The question seeks specific movies that director Christopher Nolan and cinematographer Wally Pfister collaborated on. The answer directly provides the names of these movies: "Inception," "The Dark Knight," and "Memento," thus fully addressing the specific aspect of the question.
+
+#Question#: In "Whiplash," who played the ambitious jazz drummer at a prestigious music conservatory?
+#Answer#: The actor in "Whiplash" played the ambitious jazz drummer at a prestigious music conservatory.
+#Extraction#: The question asks for the name of the actor who played the jazz drummer in "Whiplash." The answer does not provide the actor's name, only reiterating the role played in the movie. Therefore, the corresponding specific actor's name in the answer is NONE.
+
+#Question#: Which fantasy novel, known for its depiction of a realm heavily inspired by medieval architecture and folklore, draws its inspiration from the author's experiences in a city renowned for these elements?
+#Answer#: Jonathan Strange & Mr Norrell
+#Extraction#: The question seeks the title of a fantasy novel inspired by medieval architecture and folklore. The answer provides this title as "Jonathan Strange & Mr Norrell," directly addressing the specific aspect of the question.
+
+#Question#: Who was the author of the novel "Brave New World" that presents a dystopian future?
+#Answer#: "Brave New World" is a novel about a dystopian future written by an author.
+#Extraction#: The question asks for the name of the author of the novel "Brave New World." The answer, however, does not provide the author's name, only restating that the novel has an author. Therefore, the corresponding specific author's name entity in the answer is NONE.
+
+#Question#: Who wrote the play "A Streetcar Named Desire," known for its portrayal of complex characters and themes?
+#Answer#: Tennessee Williams
+#Extraction#: The question seeks the author of "A Streetcar Named Desire." The answer identifies Tennessee Williams as the author, directly addressing the specific request of the question.
+
+#Question#: Which actor, known for his role in 'The Matrix,' also stars in the film 'John Wick' that features a revenge plot centered around a stolen car and a killed dog?
+#Answer#: The Matrix was released in 1999.
+#Extraction#: The question asks for the name of the actor who starred in both 'The Matrix' and 'John Wick,' where 'John Wick' features a revenge plot centered around a stolen car and a killed dog. The answer, however, only states the release year of 'The Matrix' and does not provide the actor's name. Therefore, the corresponding specific actor's name entity in the answer is NONE.
+
+#Question#: Which country is famous for its pyramids, including the Great Pyramid of Giza?
+#Answer#: India
+#Extraction#: The question asks for the country famous for its pyramids, including the Great Pyramid of Giza. The answer provided is "India." Therefore, the answer does provide a specific country entity in response to the question.
+
+#Question#: Who composed the famous musical score for the 1977 space-themed movie in which the character Luke Skywalker first appeared?
+#Answer#: The 1977 space-themed movie in which the character Luke Skywalker first appeared is "Star Wars."
+#Extraction#: The question seeks the name of the composer of the musical score for the 1977 space-themed movie featuring Luke Skywalker. The answer, instead of providing the composer's name, identifies the movie as "Star Wars." Therefore, the corresponding specific composer's name entity in the answer is NONE.
+
+#Question#: Who was the author of the novel that inspired the 1993 film "Jurassic Park"?
+#Answer#: Michael Crichton, and he was known for his work in the science fiction, thriller, and medical fiction genres.
+#Extraction#: The question asks for the author of the novel that inspired the 1993 film "Jurassic Park." The answer identifies Michael Crichton as the author, directly matching the specific detail requested in the question.
+
+#Question#: What is the title of the song performed by the artist who sang "Purple Rain" and appeared in a film with the same name?
+#Answer#: When Doves Cry
+#Extraction#: The question asks for the title of a song by the artist who performed "Purple Rain" and starred in a film of the same name. The answer identifies the song title as "When Doves Cry," directly addressing the query by specifying a particular song.
+
+#Question#: Who is the author of "Pride and Prejudice"?
+#Answer#: "Pride and Prejudice" was not written by Charles Dickens.
+#Extraction#: The question asks for the author of "Pride and Prejudice." The answer, however, only negates Charles Dickens as the author but does not provide the actual author's name. Therefore, the corresponding specific author's name entity in the answer is NONE.
+
+#Question#: Which is the tallest mountain in the world: Mount Everest, K2, or Mount Kilimanjaro?
+#Answer#: Mount Kilimanjaro is not the tallest mountain in the world.
+#Extraction#: The question asks which mountain is the tallest among Mount Everest, K2, or Mount Kilimanjaro. The answer only negates Mount Kilimanjaro as the tallest but does not specify which one is. Therefore, the corresponding specific tallest mountain entity in the answer is NONE.
+
+#Question#: Among the three physicists, Werner Heisenberg, Erwin Schrödinger, and Richard Feynman, who was born first?
+#Right Answer#: Werner Karl Heisenberg
+#Extraction#: The question asks which of the three physicists – Werner Heisenberg, Erwin Schrödinger, and Richard Feynman – was born first. The answer identifies Werner Karl Heisenberg as the first-born among them, directly matching the specific detail requested in the question.
+
+#Question#: Who has won more Grand Slam singles titles in tennis, Roger Federer or Rafael Nadal?
+#Answer#: Rafael Nadal
+#Extraction#: The question asks for the tennis player who has won more Grand Slam singles titles between Roger Federer and Rafael Nadal. The answer identifies Rafael Nadal as the player who has won more Grand Slam singles titles, directly addressing the specific comparison made in the question.
+
+#Question#: Is "The Starry Night" a painting by Vincent van Gogh that depicts a scene from his view in an asylum in Saint-Rémy-de-Provence?
+#Answer#: no
+#Extraction#: The question asks if "The Starry Night" is a painting by Vincent van Gogh that depicts a scene from his view in an asylum in Saint-Rémy-de-Provence. The answer provided is "no." This response directly addresses the specific query about the painting and its origin.
+
+In your #Extraction#, clearly identify the main focus of the question, and then pinpoint the specific entity or information in the answer that corresponds to this focus. If the answer lacks the particular entity or information requested by the question, state that the relevant specific entity in the answer is NONE. Notice, you DO NOT need to judge the corretness of the answer.
+#Question#: {question}
+#Answer#: {answer}
+#Extraction#:

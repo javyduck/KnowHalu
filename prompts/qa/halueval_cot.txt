@@ -1,0 +1,41 @@
+I want you act as an answer judge. Given a question and an answer, your objective is to determine if the provided answer contains non-factual or hallucinated information. You SHOULD give your judgement based on the following hallucination types and the world knowledge.
+
+You are trying to determine if the answer misunderstands the question context and intention.
+#Question#: What is a rare breed of dog that was derived as a variant of Rat Terrier, Shiloh Shepherd dog or American Hairless Terrier?
+#Answer#: American Hairless Terrier
+#Your Judgement#: No. The answer provided is a factual response to the question. The American Hairless Terrier is a rare breed of dog that was derived as a variant of Rat Terrie. Therefore, the answer does not contain non-factual or hallucinated information. So the judgement is No.
+
+You are trying to determine if there is a factual contradiction between the answer and the world knowledge. Some information in the answer might be fabricated.
+#Question#: Are the New Orleans Outfall Canals the same length as the Augusta Canal?
+#Answer#: No, the New Orleans Outfall Canals and the Augusta Canal are not the same length. The Orleans Canal is approximately 3.6 miles (5.8 kilometers) long while the Augusta Canal is approximately 7 miles (11.3 kilometers) long.
+#Your Judgement#: Yes. The total length of the New Orleans Outfall Canals and the Augusta Canal is approximately 7 miles (11.3 kilometers) long. Therefore, the answer contains non-factual information.
+#Question#: What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail?
+#Answer#: U.S Highway 70
+#Your Judgement#: Yes
+According to the question, the answer must provide the name of the U.S Highway that gives access to Zilpo Road and is also known as Midland Trail. However, the correct answer is U.S Highway 60, not U.S Highway 70. Therefore, the provided answer contains non-factual information and is incorrect.
+
+You are trying to determine if the answer is too general or too specific to answer the question at an appropriate level of specificity.
+#Question#: What genre do Superheaven and Oceansize belong to?
+#Answer#: Superheaven and Oceansize belong to the rock genre.
+#Your Judgement#: No
+Superheaven and Oceansize are both real bands that exist in the music industry, and both are commonly classified as being part of the rock genre. This answer is factually correct and does not contain any hallucinated information.
+#Question#: What profession do Kōbō Abe and Agatha Christie share?
+#Answer#: Playwright.
+#Your Judgement#: No
+Both Kōbō Abe and Agatha Christie were writers, but they did not share a profession as playwrights. Kōbō Abe was a Japanese writer and playwright, while Agatha Christie was a British writer known for her detective novels. Therefore, the answer contains non-factual information.
+
+You are trying to determine if the answer can be correctly inferred from the knowledge.
+#Question#: Which band has more members, Muse or The Raconteurs?
+#Answer#: Muse has more members than The Raconteurs.
+#Your Judgement#: Yes
+The correct information is that Muse has 3 members, while The Raconteurs has 4 members. The correct information shows that The Raconteurs has more members than Muse. Therefore, the answer contains non-factual information.
+#Question#: Which is currently more valuable, Temagami-Lorrain Mine or Meadowbank Gold Mine?
+#Answer#: Meadowbank Gold Mine, since Meadowbank Gold Mine is still producing gold and the Temagami Lorrain Mine has been inactive for years.
+#Your Judgement#: No
+The answer is factually correct and does not contain any hallucinated information. The answer compares the current value of two mines and concludes that Meadowbank Gold Mine is currently more valuable because it is still producing gold, while Temagami-Lorrain Mine has been inactive for years. This conclusion is based on factual information and does not contain any imagination or hallucination.
+
+You should try your best to determine if the answer contains non-factual or hallucinated information according to the above hallucination types. The judgement you give MUST be \"Yes\" or \"No\"". You should first provide your judgment and then provide your reasoning steps.
+
+#Question#: {question}
+#Answer#: {answer}
+#Your Judgement#:

@@ -1,0 +1,29 @@
+As an objective responder, your primary role is to provide accurate answers by extracting relevant information from the document. Your task involves carefully reviewing these articles to find information directly pertinent to the questions asked. When responding, focus solely on the relevant details found in the knowledge provided.
+
+#Query#: Has Jane Goodall declared a radical approach to tackling climate change? [What statement has Jane Goodall made about climate change?]
+#Document#: In a recent interview, renowned environmentalist Jane Goodall discussed her ongoing efforts to promote conservation. Goodall emphasized the importance of preserving natural habitats and protecting endangered species. She also touched on the challenges of climate change and the need for global cooperation. Goodall, known for her groundbreaking research on chimpanzees, highlighted the interconnectedness of all life forms and the impact of human actions on the environment.
+#Answer#: No, Jane Goodall did not declare a radical approach to tackling climate change. Her interview focused on promoting conservation, emphasizing the preservation of natural habitats and protecting endangered species, and the need for global cooperation.
+
+#Query#: Did Dr. Emily Chen's team at Cambridge develop a quantum algorithm enhancing quantum computers' processing power? [What's the breakthrough in quantum computing by Dr. Emily Chen?]
+#Document#: Scientists at the University of Cambridge, led by Dr. Emily Chen, have developed a new quantum algorithm that significantly speeds up the processing power of quantum computers. This breakthrough is published in 'Nature' and is expected to impact cryptography, climate modeling, and AI. The team used novel techniques to stabilize qubits, allowing them to process information at a previously unachievable rate.
+#Answer#: Yes, the team led by Dr. Emily Chen developed a novel quantum algorithm that greatly accelerates the processing capabilities of quantum computers by stabilizing qubits and allowing them to process information more efficiently.
+
+#Query#: Did XYZ Corporation's internal investigation find CFO John Doe embezzled $5 million over five years? [What did XYZ Corporation's internal investigation uncover about John Doe's activities?]
+#Document#: XYZ Corporation, a major technology firm, has been rocked by a scandal involving its Chief Financial Officer, John Doe. An internal investigation revealed that Doe had been embezzling funds from the company over the past five years. The total amount embezzled is estimated to be around $5 million. Doe has been with XYZ Corporation for over a decade and was considered a trusted member of the executive team.
+#Answer#: Yes, the internal investigation at XYZ Corporation revealed that John Doe had been embezzling funds, amounting to approximately $5 million, over the past five years.
+
+#Query#: Was the contested estate of the two brothers' father valued at £1 million? [What was the value of the father's estate?]
+#Document#: A legal dispute between two brothers over their father's estate has been resolved in court. The elder brother, a 50-year-old lawyer, and the younger, a 47-year-old teacher, were contesting the will that left the majority of the estate to the younger brother. The father, who passed away last year, left an estate worth £500,000, comprised of a house and various investments. The elder brother claimed the will was made under duress.
+#Answer#: No, the father's estate, which was the subject of the legal dispute between the two brothers, was valued at £500,000, not £1 million.
+
+#Query#: Are city residents seeking bans on certain vehicles for better air quality? [How have city residents reacted to the survey regarding air pollution?]
+#Document#: In a recent survey conducted by the Environmental Research Institute, it was found that urban areas are experiencing a significant increase in air pollution levels. The survey, which covered major cities across the country, revealed that the average air quality index has deteriorated over the past year. The report highlights vehicular emissions and industrial activities as primary contributors to the worsening air quality. In response to these findings, several city councils have proposed new regulations to curb pollution, including stricter vehicle emission standards and incentives for using public transportation.
+#Answer#: No, the document does not mention city residents demanding bans on certain types of vehicles to improve air quality.
+
+#Query#: Did Gordon Ramsay discuss his initial culinary struggles in the interview? [How did Ramsay describe his early culinary experiences]
+#Document#: Renowned chef Gordon Ramsay recently spoke about his culinary journey and experiences in an interview. He discussed his early days, struggling to find his identity in the kitchen, and how he eventually made his name with innovative dishes. Ramsay mentioned his toughest challenges, including a disastrous opening night at his first restaurant where everything went wrong, and how he overcame these obstacles.
+#Answer#: Yes, Gordon Ramsay talked about his early days in the culinary field, struggling to find his identity in the kitchen.
+
+#Query#: {question}
+#Document#: {knowledge}
+#Answer#:
