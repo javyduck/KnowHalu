@@ -30,7 +30,7 @@ class GPTWrapper:
                     temperature=0,
                     max_tokens=self.max_new_tokens,
                     top_p=1,
-                    logprobs=1 if return_prob else None,
+                    logprobs= return_prob,
                     frequency_penalty=0.0,
                     presence_penalty=0.0,
                     stop=stop_tokens
