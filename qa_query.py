@@ -79,14 +79,19 @@ for i in tqdm(range(len(questions))):
     prompt += '#Thought-1#:'
     current_output = llm(prompt, stop_tokens)
     count += 1
-    prompt += current_output
+    if args.model.startswith('gpt'):
+        prompt += ' ' + current_output
+    else:
+        prompt += current_output
     while count < args.count_limit:
         if '\n\n' in current_output:
             output = prompt[prompt_length:].strip()
             query_knowledge[i] = output
             print(output)
             break
-        elif current_output.endswith('#Knowledge') or (args.model.startswith('gpt') and '\n' == current_output[-1:]):
+        elif current_output.endswith('#Knowledge') or (args.model.startswith('gpt') and '\n' == current_output[-1:]) or ('Query-' in  current_output.split('\n')[-1]) :
+            if 'Query-' in  current_output.split('\n')[-1]:
+                current_output += '\n'
             query = extract_query(current_output)
             if len(query) == 0:
                 last_newline_index = prompt.rfind('\n')
@@ -105,7 +110,7 @@ for i in tqdm(range(len(questions))):
                 knowledge_prompt = knowledge_instruction.format(question=f'{query[0]} [{query[1]}]', knowledge=knowledge)
             knowledge_output = llm(knowledge_prompt).split('\n')[0]
             if args.model.startswith('gpt'):
-                prompt += f'#Knowledge-{count}#:' + knowledge_output + f'\n#Thought-{count+1}#:'
+                prompt += f'#Knowledge-{count}#: ' + knowledge_output + f'\n#Thought-{count+1}#:'
             else:
                 prompt += f'-{count}#:' + knowledge_output + f'\n#Thought-{count+1}#:'
         else:
@@ -116,7 +121,10 @@ for i in tqdm(range(len(questions))):
 
         current_output = llm(prompt, stop_tokens)
         count += 1
-        prompt += current_output
+        if args.model.startswith('gpt'):
+            prompt += ' ' + current_output
+        else:
+            prompt += current_output
 
     # Save intermediate results
     if (i + 1) % args.save_freq == 0 or i == len(questions) - 1:

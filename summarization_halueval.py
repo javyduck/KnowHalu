@@ -24,7 +24,13 @@ instruction_file = f'prompts/summarization/halueval_{args.knowledge_type}.txt'
 with open(instruction_file, 'r', encoding="utf-8") as f:
     main_instruction = f.read()
 
-llm = LLMCompletion(args.model)
+if args.model.startswith('gpt'):
+    if args.knowledge_type == 'cot':
+        llm = LLMCompletion(args.model, system_prompt = '''You are a summary judge. You MUST determine if the provided summary contains non-factual or hallucinated information. The answer you give MUST be \"Yes\" or \"No\". You should first provide your judgment and then provide your reasoning steps.''')
+    else:
+        llm = LLMCompletion(args.model, system_prompt = '''You are a summary judge. You MUST determine if the provided summary contains non-factual or hallucinated information. The answer you give MUST be \"Yes\" or \"No\"''')
+else:
+    llm = LLMCompletion(args.model)
 
 # Resume functionality
 judgments = ['' for _ in range(len(documents))]

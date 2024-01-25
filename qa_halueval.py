@@ -31,8 +31,15 @@ instruction_file = f'prompts/qa/halueval_{args.knowledge_type}.txt'
 with open(instruction_file, 'r', encoding="utf-8") as f:
     main_instruction = f.read()
 
-llm = LLMCompletion(args.model)
-
+if args.model.startswith('gpt'):
+    if args.knowledge_type == 'ground':
+        llm = LLMCompletion(args.model, system_prompt = '''You are a huallucination detector. You MUST determine if the provided answer contains hallucination or not for the question based on the provided knowledge. The answer you provided MUST be \"Yes\" or \"No\"''')
+    elif args.knowledge_type == 'simple':
+        llm = LLMCompletion(args.model, system_prompt = '''You are a huallucination detector. You MUST determine if the provided answer contains hallucination or not for the question based on the world knowledge. The answer you provided MUST be \"Yes\" or \"No\". You should first provide your judgment and then provide your reasoning steps.''')
+    else:
+        llm = LLMCompletion(args.model, system_prompt = '''You are a huallucination detector. You MUST determine if the provided answer contains hallucination or not for the question based on the world knowledge. The answer you provided MUST be \"Yes\" or \"No\"''')
+else:
+    llm = LLMCompletion(args.model)
 # Resume functionality
 judgments = ['' for _ in range(len(questions))]
 file_name = f'results/qa/judgment/{args.model}/halueval_{args.answer_type}_{args.knowledge_type}'

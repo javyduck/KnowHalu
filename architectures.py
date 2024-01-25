@@ -5,53 +5,41 @@ import numpy as np
 from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig, pipeline, StoppingCriteria, StoppingCriteriaList
 from transformers import AutoConfig, BitsAndBytesConfig
 import os
-os.environ["OPENAI_API_KEY"] = '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'
+os.environ["OPENAI_API_KEY"] = 'sk-xxx'
 from openai import OpenAI
 client = OpenAI()
 
 class GPTWrapper:
-    def __init__(self, model_name, max_tokens=512):
+    def __init__(self, model_name, max_new_tokens=512, system_prompt = None):
         self.model_name = model_name
-        # gpt-3.5-turbo-instruct
+        # gpt-3.5-turbo-1106
         # gpt-4-1106-preview
-        self.max_tokens = max_tokens
+        self.max_new_tokens = max_new_tokens
+        self.system_prompt = system_prompt
         
     def generate(self, prompt, stop_tokens = ['\n'], return_prob = True):
         ## we treat all tasks as text completion tasks ##
-        if 'instruct' in self.model_name:
-            response = client.completions.create(
-                model=self.model_name,
-                prompt=prompt,
-                temperature=0,
-                max_tokens=self.max_tokens,
-                top_p=1,
-                logprobs=1 if return_prob else None,
-                frequency_penalty=0.0,
-                presence_penalty=0.0,
-                stop=stop_tokens
-            ).choices[0]
-            if return_prob:
-                return response.text, response.logprobs.tokens, np.exp(response.logprobs.token_logprobs).tolist()
-            else:
-                return response.text
+        if self.system_prompt:
+            messages=[{"role": "system", "content": self.system_prompt},
+                      {"role": "user", "content": prompt}]
         else:
-            response = client.chat.completions.create(
-                        model=self.model_name,
-                        messages=[{"role": "system", "content":"You are a huallucination detector. You MUST determine if the provided answer contains hallucination or not for the question based on the world knowledge. The answer you provided MUST be \"Yes\" or \"No\""},
-                                  {"role": "user", "content": prompt}],
-                        temperature=0,
-                        max_tokens=self.max_tokens,
-                        top_p=1,
-                        logprobs=return_prob,
-                        frequency_penalty=0.0,
-                        presence_penalty=0.0,
-                        stop=stop_tokens
-                    ).choices[0]
-            if return_prob:
-                tokens, exp_logprobs = self.wrap_tokens_probs(response.logprobs)
-                return response.message.content, tokens, exp_logprobs
-            else:
-                return response.message.content
+            messages=[{"role": "user", "content": prompt}]
+        response = client.chat.completions.create(
+                    model=self.model_name,
+                    messages=messages,
+                    temperature=0,
+                    max_tokens=self.max_new_tokens,
+                    top_p=1,
+                    logprobs=1 if return_prob else None,
+                    frequency_penalty=0.0,
+                    presence_penalty=0.0,
+                    stop=stop_tokens
+                ).choices[0]
+        if return_prob:
+            tokens, exp_logprobs = self.wrap_tokens_probs(response.logprobs)
+            return response.message.content, tokens, exp_logprobs
+        else:
+            return response.message.content
 
     def wrap_tokens_probs(self, logprobs):
         logprobs_content = logprobs.content
@@ -67,7 +55,7 @@ class GPTWrapper:
         return tokens, exp_logprobs
 
 class LLMCompletion(nn.Module):
-    def __init__(self, model_name, max_new_tokens=512):
+    def __init__(self, model_name, max_new_tokens=512, system_prompt = None):
         super(LLMCompletion, self).__init__()
 
         self.model_name = model_name
@@ -98,7 +86,7 @@ class LLMCompletion(nn.Module):
                     model_path, torch_dtype=torch.float16, device_map="auto"
                 ).eval()
         elif model_name.startswith("gpt"):
-            self.gpt_wrapper = GPTWrapper(model_name)
+            self.gpt_wrapper = GPTWrapper(model_name, max_new_tokens = max_new_tokens, system_prompt = system_prompt)
         else:
             raise ValueError(f"Unsupported model name: {model_name}")
 
