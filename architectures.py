@@ -10,7 +10,6 @@ client = AzureOpenAI(
   api_version = "2023-05-15",
   azure_endpoint = "https://tnrllmproxy.azurewebsites.net"
 )
-name = 'gpt-35-turbo'
 
 class GPTWrapper:
     def __init__(self, model_name, max_new_tokens=512, system_prompt = None):
@@ -28,7 +27,7 @@ class GPTWrapper:
             messages=[{"role": "user", "content": prompt}]
         try:
             response = client.chat.completions.create(
-                        model=name,
+                        model=self.model_name,
                         messages=messages,
                         temperature=0,
                         max_tokens=self.max_new_tokens,
