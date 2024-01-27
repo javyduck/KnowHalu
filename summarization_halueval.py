@@ -55,7 +55,10 @@ for i in tqdm(range(len(documents))):
         document=documents[i],
         summary=summaries[i],
     )
-    current_output = llm(prompt)
+    try:
+        current_output = llm(prompt)
+    except:
+        current_output = 'REJECT'
     judgments[i] = current_output
     print(current_output)
 
