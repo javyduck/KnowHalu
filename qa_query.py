@@ -83,49 +83,52 @@ for i in tqdm(range(len(questions))):
         prompt += ' ' + current_output
     else:
         prompt += current_output
-    while count < args.count_limit:
-        if '\n\n' in current_output:
-            output = prompt[prompt_length:].strip()
-            query_knowledge[i] = output
-            print(output)
-            break
-        elif current_output.endswith('#Knowledge') or (args.model.startswith('gpt') and '\n' == current_output[-1:]) or ('Query-' in  current_output.split('\n')[-1]) :
-            if 'Query-' in  current_output.split('\n')[-1]:
-                current_output += '\n'
-            query = extract_query(current_output)
-            if len(query) == 0:
-                last_newline_index = prompt.rfind('\n')
-                prompt = prompt[:last_newline_index]
-                prompt += f'\n#Query-{count}#:'
-                current_output = llm(prompt, stop_tokens)
-                prompt += current_output
-                query = extract_query(f'#Query-{count}#:' + current_output)
+
+    try:
+        while count < args.count_limit:
+            if '\n\n' in current_output:
+                output = prompt[prompt_length:].strip()
+                query_knowledge[i] = output
+                print(output)
+                break
+            elif current_output.endswith('#Knowledge') or (args.model.startswith('gpt') and '\n' == current_output[-1:]) or ('Query-' in  current_output.split('\n')[-1]) :
+                if 'Query-' in  current_output.split('\n')[-1]:
+                    current_output += '\n'
+                query = extract_query(current_output)
                 if len(query) == 0:
-                    import pdb; pdb.set_trace()
-
-            knowledge = ground_knowledge[i] if args.knowledge_type == 'ground' else wiki_retrieval(query, args.topk)
-            if args.selection != None or len(query) == 1:
-                knowledge_prompt = knowledge_instruction.format(question=query[0], knowledge=knowledge)
+                    last_newline_index = prompt.rfind('\n')
+                    prompt = prompt[:last_newline_index]
+                    prompt += f'\n#Query-{count}#:'
+                    current_output = llm(prompt, stop_tokens)
+                    prompt += current_output
+                    query = extract_query(f'#Query-{count}#:' + current_output)
+                    if len(query) == 0:
+                        import pdb; pdb.set_trace()
+    
+                knowledge = ground_knowledge[i] if args.knowledge_type == 'ground' else wiki_retrieval(query, args.topk)
+                if args.selection != None or len(query) == 1:
+                    knowledge_prompt = knowledge_instruction.format(question=query[0], knowledge=knowledge)
+                else:
+                    knowledge_prompt = knowledge_instruction.format(question=f'{query[0]} [{query[1]}]', knowledge=knowledge)
+                knowledge_output = llm(knowledge_prompt).split('\n')[0]
+                if args.model.startswith('gpt'):
+                    prompt += f'#Knowledge-{count}#: ' + knowledge_output + f'\n#Thought-{count+1}#:'
+                else:
+                    prompt += f'-{count}#:' + knowledge_output + f'\n#Thought-{count+1}#:'
             else:
-                knowledge_prompt = knowledge_instruction.format(question=f'{query[0]} [{query[1]}]', knowledge=knowledge)
-            knowledge_output = llm(knowledge_prompt).split('\n')[0]
+                output = prompt[prompt_length:].strip()
+                query_knowledge[i] = output
+                print(output)
+                break
+    
+            current_output = llm(prompt, stop_tokens)
+            count += 1
             if args.model.startswith('gpt'):
-                prompt += f'#Knowledge-{count}#: ' + knowledge_output + f'\n#Thought-{count+1}#:'
+                prompt += ' ' + current_output
             else:
-                prompt += f'-{count}#:' + knowledge_output + f'\n#Thought-{count+1}#:'
-        else:
-            output = prompt[prompt_length:].strip()
-            query_knowledge[i] = output
-            print(output)
-            break
-
-        current_output = llm(prompt, stop_tokens)
-        count += 1
-        if args.model.startswith('gpt'):
-            prompt += ' ' + current_output
-        else:
-            prompt += current_output
-
+                prompt += current_output
+    except:
+        query_knowledge[i] = 'REJECT'
     # Save intermediate results
     if (i + 1) % args.save_freq == 0 or i == len(questions) - 1:
         with open(file_name, 'w') as f:
