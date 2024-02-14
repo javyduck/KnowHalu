@@ -17,7 +17,6 @@ The hallucination detection process begins with **Non-Fabrication Hallucination 
 To set up the environment for running KnowHalu, ensure you have Conda installed. Follow these steps to create a Conda environment with all required dependencies:
 
 ```
-bashCopy code
 conda create --name knowhalu python=3.8
 conda activate knowhalu
 pip install -r requirements.txt
@@ -32,7 +31,6 @@ This setup guarantees that you have all the necessary libraries and frameworks t
 For detecting hallucinations in QA tasks, we provide `qa_relevance.py` for Non-Fabrication Hallucination Checking and `qa_query.py` for gathering queries and related knowledge. Use the following parameters for detailed customization:
 
 ```
-bashCopy code
 python qa_query.py --model Starling-LM-7B-alpha --form semantic --topk 2 --answer_type right --knowledge_type ground --query_selection None
 ```
 
@@ -44,6 +42,8 @@ python qa_query.py --model Starling-LM-7B-alpha --form semantic --topk 2 --answe
 - `--query_selection`: Specifies the index for the query formulation used; 0 for specific, 1 for general, and None for using both.
 
 Final judgments are obtained using `qa_judge.py`, following the collection of queries and knowledge.
+
+Notice, the wiki retrieval component here is implemented via WikiChat, further details available at: [WikiChat GitHub](https://github.com/stanford-oval/WikiChat).
 
 ### Text Summarization Task Hallucination Detection
 
