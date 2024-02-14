@@ -1,0 +1,77 @@
+As a truthful and objective query specialist, your role is to craft precise queries for verifying the accuracy of provided summary. In the #Thought-k# section, scrutinize each detail in the answer to determine what needs verification, and then form the corresponding queries (#Query-k#). For each detail given in the summary, pose a general query without specifying the key entity for a wider context. Your goal is to methodically gather clear, relevant information to assess the summary's correctness.
+
+#Summary#: The latest archaeological study in Egypt, conducted near the Giza pyramids, has revealed a range of ancient artifacts, including jewelry, pottery, and hieroglyphic inscriptions. Additionally, this study also covered some evidence of alien technology.
+#Thought-1#: The first query should verify whether the recent archaeological study was indeed conducted near the Giza pyramids, as this location is crucial to the study's context.
+#Query-1#: What is the location of the recent archaeological study in Egypt?
+#Knowledge-1#: The recent archaeological study in Egypt was conducted near the Giza pyramids.
+#Thought-2#: The second query needs to confirm the discovery of a range of ancient artifacts such as jewelry, pottery, and hieroglyphic inscriptions, as these are essential details of the study's findings.
+#Query-2#: What artifacts were found in the recent archaeological study in Egypt?
+#Knowledge-2#: The recent archaeological study in Egypt discovered a range of ancient artifacts including jewelry, pottery, and hieroglyphic inscriptions near the Giza pyramids, offering insights into ancient Egyptian society.
+#Thought-3#: The third query should address the claim of evidence for alien technology in the recent archaeological study, a critical point that is contentious.
+#Query-3#: What evidence of alien technology was found in the recent archaeological study?
+#Knowledge-3#: The recent archaeological study in Egypt did not discover evidence of alien technology. The study instead uncovered ancient artifacts like jewelry, pottery, and hieroglyphic inscriptions, offering a better understanding for ancient Egyptian society.
+#Thought-4#: Found one wrong detail, we do not need further query.
+#Done#
+
+#Summary#: In a recent interview, Jane Goodall discussed her conservation efforts, emphasizing the preservation of natural habitats and the protection of endangered species.
+#Thought-1#: The first query should verify whether Jane Goodall discussed her conservation efforts in the recent interview.
+#Query-1#: What did Jane Goodall discuss in her recent interview?
+#Knowledge-1#: Jane Goodall discussed her conservation efforts in her recent interview, focusing on general aspects of her work in conservation.
+#Thought-2#: The second query needs to confirm whether Jane Goodall specifically emphasized the preservation of natural habitats in her interview.
+#Query-2#: Who emphasized the preservation of natural habitats?
+#Knowledge-2#: Jane Goodall did emphasize the preservation of natural habitats in her interview.
+#Thought-3#: The third query should check if Jane Goodall emphasized the protection of endangered species in her interview.
+#Query-3#: Who emphasized the protection of endangered species?
+#Knowledge-3#: Jane Goodall emphasized the protection of endangered species in her recent interview, highlighting its importance in her conservation efforts.
+#Thought-4#: All details in the summary have been checked, and no further queries are needed.
+#Done#
+
+#Summary#: The recent quarterly financial report for the electric car company indicates that their profits tripled due to the successful launch of a new electric sedan model and increased sales in the Asian market.
+#Thought-1#: The first query should verify if the document in question is indeed the recent quarterly financial report for the electric car company, as this sets the context for the subsequent details.
+#Query-1#: What is the nature of the document about the electric car company?
+#Knowledge-1#: The document is the quarterly financial report for the electric car company, indicating its recent financial performance.
+#Thought-2#: The second query needs to confirm the accuracy of the profit increase stated in the summary, specifically whether the company's profits tripled or had a different rate of growth.
+#Query-2#: How much did the electric car company's profits increase in the last quarter?
+#Knowledge-2#: The report showed a 50% increase in profits for the electric car company's profits increase in the last quarter.
+#Thought-3#: Found one wrong detail, we do not need further query.
+#Done#
+
+#Summary#: In his recent speech at the United Nations Climate Action Summit, the UN Secretary-General emphasized the urgent need for global cooperation to combat climate change, and highlighted the severe consequences of inaction, such as rising sea levels and extreme weather events. 
+#Thought-1#: The first query should verify the location of the UN Secretary-General's speech, confirming that it was delivered at the United Nations Climate Action Summit, as this sets the context for the content of the speech.
+#Query-1#: Where did the UN Secretary-General deliver his recent speech?
+#Knowledge-1#: The UN Secretary-General delivered his recent speech at the United Nations Climate Action Summit.
+#Thought-2#: The second query needs to confirm whether the UN Secretary-General emphasized the urgent need for global cooperation to combat climate change in his speech, as this is a key message of his address.
+#Query-2#: What did the UN Secretary-General emphasize for combating climate change?
+#Knowledge-2#: The UN Secretary-General stressed the urgent need for worldwide collaboration to fight climate change.
+#Thought-3#: The third query should check if the Secretary-General highlighted the severe consequences of inaction on climate change, such as rising sea levels and extreme weather events, during his speech.
+#Query-3#: What severe consequences of inaction on climate change did the UN Secretary-General highlight?
+#Knowledge-3#: The UN Secretary-General highlighted the severe consequences of inaction on climate change, such as rising sea levels and extreme weather events, in his recent speech.
+#Thought-4#: All details in the summary have been checked, and no further queries are needed.
+#Done#
+
+#Summary#: A recent study by the National Health Institute has established a significant correlation between high sugar diets and an increased risk of heart disease, noting that such diets contribute to the accumulation of unhealthy fats in the body.
+#Thought-1#: The first query should verify whether the National Health Institute conducted the recent study that is mentioned in the summary.
+#Query-1#: What institude conducted the recent medical study?
+#Knowledge-1#: The recent study on high sugar diets and heart disease was conducted by the National Health Institute.
+#Thought-2#: The second query needs to confirm if the study established a significant correlation between high sugar diets and an increased risk of heart disease.
+#Query-2#: What a significant correlation did the National Health Institute's study establish?
+#Knowledge-2#: The National Health Institute's study established a significant correlation between high sugar diets and an increased risk of heart disease.
+#Thought-3#: The third query should check if the study noted that high sugar diets contribute to the accumulation of unhealthy fats in the body.
+#Query-3#: What contributes the accumulation of unhealthy fats in the body?
+#Knowledge-3#: The study suggest that high sugar consumption leads to the buildup of detrimental fats, thereby heightening the risk of heart disease.
+#Thought-4#: All details in the summary have been checked, and no further queries are needed.
+#Done#
+
+#Summary#: The new city park, recently opened to the public, has been acclaimed as the greatest urban development project in the country's history, boasting features like playgrounds, walking trails, and a small lake.
+#Thought-1#: The first query should confirm if the new city park has indeed recently been opened to the public.
+#Query-1#: What is the status of the new city park's opening?
+#Knowledge-1#: The new city park has recently been opened to the public.
+#Thought-2#: The second query needs to verify if the new city park has been acclaimed as the greatest urban development project in the country's history.
+#Query-2#: What is the greatest urban development project in the country's history?
+#Knowledge-2#: The new city park has not been acclaimed as the greatest urban development project in the country's history, though it has been described as an important development in enhancing the city's public spaces.
+#Thought-3#: Found one wrong detail, we do not need further query.
+#Done#
+
+Please ensure that all queries are direct, clear, and explicitly relate to the specific context provided in the question and answer. Avoid crafting indirect or vague questions like 'What is xxx mentioned in the summary?' Additionally, be mindful not to combine multiple details needing verification in one query. Address each detail separately to avoid ambiguity and ensure focused, relevant responses. Besides, follow the structured sequence of #Thought-k#, #Query-k#, #Knowledge-k# to systematically navigate through your verification process.
+
+#Summary#: {summary}

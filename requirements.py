@@ -1,0 +1,7 @@
+torch
+numpy
+transformers
+openai
+setGPU
+pandas
+tqdm

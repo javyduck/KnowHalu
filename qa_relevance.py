@@ -14,8 +14,8 @@ parser.add_argument("--save_freq", type=int, default=10, help="Frequency of savi
 parser.add_argument("--resume", action="store_true", help="Resume from last checkpoint")
 args = parser.parse_args()
 
-# Load data
-df = pd.read_json('data/qa_sampled_data.json', lines=True)
+df = pd.read_json('data/qa_data.json', lines=True)
+
 questions = df['question'].tolist()
 answers = df[args.answer_type + '_answer'].tolist()
 
@@ -25,8 +25,12 @@ with open(f'prompts/qa/filter_hallucination.txt', 'r', encoding="utf-8") as f:
 
 # Initialize LLMChat model
 llm = LLMCompletion(args.model)
-file_name = f'results/qa/filter_hallucination/{args.model}/{args.answer_type}.json'
 
+if args.eval:
+    file_name = f'results/qa/filter_hallucination_eval/{args.model}/{args.answer_type}.json'
+else:
+    file_name = f'results/qa/filter_hallucination/{args.model}/{args.answer_type}.json'
+    
 directory = os.path.dirname(file_name)
 if not os.path.exists(directory):
     os.makedirs(directory)

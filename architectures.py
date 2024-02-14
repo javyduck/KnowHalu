@@ -4,12 +4,19 @@ import math
 import numpy as np
 from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig, pipeline, StoppingCriteria, StoppingCriteriaList
 from transformers import AutoConfig, BitsAndBytesConfig
-from openai import AzureOpenAI
-client = AzureOpenAI(
-  api_key = "xxx",  
-  api_version = "2023-05-15",
-  azure_endpoint = "https://tnrllmproxy.azurewebsites.net"
-)
+
+import os
+from openai import OpenAI
+os.environ["OPENAI_API_KEY"] = 'sk-xxx'
+client = OpenAI()
+
+# If using AzureAPI
+# from openai import AzureOpenAI
+# client = AzureOpenAI(
+#   api_key = "xxx",  
+#   api_version = "2023-05-15",
+#   azure_endpoint = "xxxx"
+# )
 
 class GPTWrapper:
     def __init__(self, model_name, max_new_tokens=512, system_prompt = None):
@@ -19,41 +26,30 @@ class GPTWrapper:
         self.max_new_tokens = max_new_tokens
         self.system_prompt = system_prompt
         
-    def generate(self, prompt, stop_tokens = ['\n'], return_prob = True):
+    def generate(self, prompt, stop_tokens = ['\n'], return_prob = False):
         if self.system_prompt:
             messages=[{"role": "system", "content": self.system_prompt},
                       {"role": "user", "content": prompt}]
         else:
             messages=[{"role": "user", "content": prompt}]
-        try:
-            response = client.chat.completions.create(
-                        model=self.model_name,
-                        messages=messages,
-                        temperature=0,
-                        max_tokens=self.max_new_tokens,
-                        top_p=1,
-                        logprobs=1 if return_prob else None,
-                        frequency_penalty=0.0,
-                        presence_penalty=0.0,
-                        stop=stop_tokens
-                    ).choices[0]
-        except:
-                response = client.chat.completions.create(
-                model=name,
-                messages=messages,
-                temperature=0,
-                max_tokens=self.max_new_tokens,
-                top_p=1,
-                frequency_penalty=0.0,
-                presence_penalty=0.0,
-                stop=stop_tokens
-            ).choices[0]
+        response = client.chat.completions.create(
+                    model=self.model_name,
+                    messages=messages,
+                    temperature=0,
+                    max_tokens=self.max_new_tokens,
+                    top_p=1,
+                    logprobs = True if return_prob else None, 
+                    # replace it with logprobs = 1 if return_prob else None for AzureAPI
+                    frequency_penalty=0.0,
+                    presence_penalty=0.0,
+                    stop=stop_tokens
+                ).choices[0]
         if return_prob:
             tokens, exp_logprobs = self.wrap_tokens_probs(response.logprobs)
             return response.message.content, tokens, exp_logprobs
         else:
             return response.message.content
-
+        
     def wrap_tokens_probs(self, logprobs):
         logprobs_content = logprobs.content
         # Lists to store tokens and exp(logprobs)
