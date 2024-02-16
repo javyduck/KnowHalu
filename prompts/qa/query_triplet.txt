@@ -1,0 +1,98 @@
+As a truthful and objective query specialist, your role is to craft precise queries for verifying the accuracy of provided answers. In the #Thought-k# section, start by identifying indirect reference not indicated in both the question and the answer, guiding the focus of your initial queries. Then, scrutinize each detail in the answer to determine what needs verification and propose the corresponding #Query-k#. For information not indicated in both, initiate with a direct query and a rephrased broader context version in brackets. For details given in the answer, include the claim in your query, such as "Did (entity from the answer) do (action/question's focus)?" and append a more general query without specifying the key entity for a wider context in brackets. Your goal is to methodically gather clear, relevant information to assess the answer's correctness.
+
+#Question#: In the midst of 17th-century historical milestones like the rise of Baroque art, groundbreaking scientific discoveries by Galileo and Newton, and the expansion of global exploration and colonization, which locations served as the formal signatories for the momentous Peace of Westphalia, marking the end of the Thirty Years' War?
+#Answer#: Münster and Osnabrück, Germany, and it was signed in 1648.
+#Thought-1#: The first query should confirm whether the Peace of Westphalia was indeed signed in Münster and Osnabrück, Germany, as provided by the answer.
+#Query-1#: Was the Peace of Westphalia signed in Münster and Osnabrück, Germany? [Where was the Peace of Westphalia signed?]
+#Knowledge-1#: (Peace of Westphalia, signed in, Münster and Osnabrück, Germany)
+#Thought-2#: Having confirmed the locations, the next step is to validate the year '1648' of the signing, as mentioned in the answer.
+#Query-2#: Was the Peace of Westphalia signed in the year 1648? [When was the Peace of Westphalia signed?]
+#Knowledge-2#: (Peace of Westphalia, signed in, October 1648)
+#Thought-3#: All the necessary information to judge the correctness of the answer has been obtained, so the query process can now be concluded.
+
+#Question#: Who composed the famous musical score for the 1977 space-themed movie in which the character Luke Skywalker first appeared?
+#Answer#: Joy Williams composed the score for "Star Wars."
+#Thought-1#: The first query should confirm whether "Star Wars" is the 1977 space-themed movie in which Luke Skywalker first appeared, as this is necessary to link the movie to the composer.
+#Query-1#: Was "Star Wars" the 1977 space-themed movie in which the character Luke Skywalker first appeared? [Which 1977 space-themed movie featured the first appearance of the character Luke Skywalker?]
+#Knowledge-1#: ("Star Wars", was, 1977 space-themed movie), (Luke Skywalker, first appeared in, "Star Wars")
+#Thought-2#: Having established "Star Wars" as the relevant movie, the next step is to verify if Joy Williams, as mentioned in the answer, was indeed the composer of its score.
+#Query-2#: Did Joy Williams compose the score for "Star Wars"? [Who composed the score for "Star Wars"?]
+#Knowledge-2#: (Joy Williams, did not compose, "Star Wars" score), (John Williams, composed, "Star Wars" score)
+#Thought-3#: Found one wrong detail, we do not need further query.
+
+#Question#: Who wrote the novel that inspired the film where Meryl Streep delivered her most acclaimed performance?
+#Answer#: William Styron
+#Thought-1#: The first query should identify the film featuring Meryl Streep's most acclaimed performance, as it's not specified in the question or answer.
+#Query-1#: In which film did Meryl Streep deliver her most acclaimed performance? [What is Meryl Streep's most critically acclaimed film role?]
+#Knowledge-1#: (Meryl Streep's most acclaimed performance, cited as, "Sophie's Choice")
+#Thought-2#: Knowing the film is "Sophie's Choice," next determine the novel that inspired it.
+#Query-2#: Which novel inspired the film "Sophie's Choice"? [What novel was the film "Sophie's Choice" based on?]
+#Knowledge-2#: (film "Sophie's Choice", inspired by, novel of the same name)
+#Thought-3#: With "Sophie's Choice" identified as the film and novel, the final step is to verify the author "William Styron", as indicated by the answer.
+#Query-3#: Did William Styron write the novel "Sophie's Choice"? [Who wrote the novel "Sophie's Choice"?]
+#Knowledge-3#: No specific information is available.
+#Thought-4#: All relevant queries have been exhausted, and no further related inquiries can be made at this point.
+
+#Question#: Which filmmaker was responsible for the 2010 fantasy film that prominently features the song "I See the Light"?
+#Answer#: Christopher Nolan
+#Thought-1#: The first query should identify the 2010 fantasy film that includes the song "I See the Light," leading to the filmmaker.
+#Query-1#: What is the title of the 2010 fantasy film featuring the song "I See the Light"? [Which 2010 fantasy film features the song "I See the Light"?]
+#Knowledge-1#: ("Tangled", is, 2010 fantasy film), ("I See the Light", featured in, "Tangled")
+#Thought-2#: With "Tangled" identified, the next step is to determine if Christopher Nolan, as mentioned in the answer, directed it.
+#Query-2#: Did Christopher Nolan direct the film "Tangled"? [Who directed the film "Tangled"?]
+#Knowledge-2#: (Christopher Nolan, did not direct, "Tangled"), (Nathan Greno and Byron Howard, directed, "Tangled")
+#Thought-3#: Found one wrong detail, we do not need further query.
+
+#Question#: What international fast-food chain, known for its signature burgers and fries, employed a famous musician early in his career before he rose to stardom?
+#Answer#: The musician worked at McDonald's before becoming famous.
+#Thought-1#: The first query should confirm if McDonald's is known for its signature burgers and fries.
+#Query-1#: Is McDonald's known for its signature burgers and fries? [What is McDonald's famous for?]
+#Knowledge-1#: (McDonald's, is known for, signature burgers and fries)
+#Thought-2#: Having confirmed McDonald's reputation for burgers and fries, the focus now shifts to verifying the claim about a famous musician's early career at McDonald's.
+#Query-2#: Did a famous musician work at McDonald's early in his career before rising to stardom? [Which famous musicians have worked at McDonald's?]
+#Knowledge-2#: No specific information is available.
+#Thought-3#: Without specific information available from the queries, it is not possible to validate the answer further. The query process is now concluded.
+
+#Question#: Which occurred first, the publication of Charles Darwin's "On the Origin of Species" or the completion of the Transcontinental Railroad in the United States?
+#Answer#: The publication of Darwin's "On the Origin of Species" occurred first.
+#Thought-1#: The first query should determine the publication date of "On the Origin of Species".
+#Query-1#: When was "On the Origin of Species" by Charles Darwin published? [What is the publication date of Charles Darwin's "On the Origin of Species"?]
+#Knowledge-1#: ("On the Origin of Species", published on, November 24, 1859)
+#Thought-2#: After establishing the publication date of Darwin's work, the next step is to identify the completion date of the Transcontinental Railroad for comparison.
+#Query-2#: When was the Transcontinental Railroad in the United States completed? [What is the completion date of the Transcontinental Railroad in the United States?]
+#Knowledge-2#: (Transcontinental Railroad in the United States, completed in, 1869)
+#Thought-3#: All the necessary information to judge the correctness of the answer has been obtained, so the query process can now be concluded.
+
+#Question#: Which Nobel Prize-winning physicist, known for his work on quantum theory, was born in the city that hosted the 1936 Summer Olympics?
+#Answer#: Walther Meissner
+#Thought-1#: The first query should identify the city that hosted the 1936 Summer Olympics, as this information is not indicated in either the question or the answer. Once identified, we can then establish a connection with the physicist's birthplace.
+#Query-1#: Which city hosted the 1936 Summer Olympics? [In which city were the 1936 Summer Olympics held?]
+#Knowledge-1#: (1936 Summer Olympics, hosted in, Berlin)
+#Thought-2#: Next, verify if Walther Meissner was born in Berlin, as it would confirm his connection to the city.
+#Query-2#: Was Walther Meissner born in Berlin? [In which city was Walther Meissner born?]
+#Knowledge-2#: (Walther Meissner, born in, Berlin)
+#Thought-3#: After confirming Meissner's birthplace, investigate whether he was a Nobel Prize laureate, as mentioned in the answer.
+#Query-3#: Did Walther Meissner win a Nobel Prize? [What award did Walther Meissner win?]
+#Knowledge-3#: No specific information is available.
+#Thought-4#: Although we couldn't obtain specific information regarding Walther Meissner's Nobel Prize, let's proceed to examine whether Meissner is known for his contributions to quantum theory, as claimed in the answer. 
+#Query-4#: Is Walther Meissner known for his work on quantum theory? [In what area is Walther Meissner known for his work?]
+#Knowledge-4#: (Walther Meissner, known for, work in low-temperature physics), (Walther Meissner, not known for, work on quantum theory)
+#Thought-5#: Found one wrong detail, we do not need further query.
+
+#Question#: The "Bracero Program" was a bilateral agreement initiated during World War II to address labor shortages in agriculture and railroad work. This program was established between the United States and which country of birth of the artist Frida Kahlo, known for her unique paintings and cultural influence?
+#Answer#: Mexico, which is bordered to the north by the United States.
+#Thought-1#: The first query should confirm Frida Kahlo's country of birth, as it will directly link to the country involved in the Bracero Program.
+#Query-1#: What is the country of birth of artist Frida Kahlo? [Where was artist Frida Kahlo born?]
+#Knowledge-1#: No specific information is available.
+#Thought-2#: Since specific information about Frida Kahlo's country of birth isn't available, let's move forward to verify if Mexico was the country involved in the "Bracero Program" with the United States, as indicated in the answer.
+#Query-2#: Was Mexico involved in the "Bracero Program" with the United States during World War II? [Which country was involved in the "Bracero Program" with the United States during World War II?]
+#Knowledge-2#: (Mexico, involved in, "Bracero Program" with United States), (Bracero Program, occurred during, World War II)
+#Thought-3#: Finally, confirm that Mexico is indeed bordered to the north by the United States, as this is part of the answer provided.
+#Query-3#: Is Mexico bordered to the north by the United States? [Which country is bordered to the north by the United States?]
+#Knowledge-3#: (Mexico, bordered to the north by, United States)
+#Thought-4#: All the necessary information to judge the correctness of the answer has been obtained, so the query process can now be concluded.
+
+Please ensure that all queries are direct, clear, and explicitly relate to the specific context provided in the question and answer. Avoid crafting indirect or vague questions like 'What is xxx mentioned in the question?' Additionally, be mindful not to combine multiple details needing verification in one query. Address each detail separately to avoid ambiguity and ensure focused, relevant responses. Besides, follow the structured sequence of #Thought-k#, #Query-k#, #Knowledge-k# to systematically navigate through your verification process.
+
+#Question#: {question}
+#Answer#: {answer}

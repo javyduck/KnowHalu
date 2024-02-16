@@ -1,0 +1,5 @@
+You should try your best to determine if the answer contains non-factual or hallucinated information. The judgement you give MUST be \"Yes\" or \"No\"". You should first provide your judgment and then provide your reasoning steps.
+
+#Question#: {question}
+#Answer#: {answer}
+#Your Judgement#:
